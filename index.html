@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mathis">
+    <meta name="description" content="Le repaire numérique de Mathis_reptile - Étudiant Master 2 ICONE qui code et collectionne les lézards virtuels">
+    <title>🦎 Mathis_reptile - Le Lézard du Web 3.0 🦎</title>
+    
+    <!-- Lien d'autodécouverte FOAF -->
+    <link rel="meta" type="application/rdf+xml" title="FOAF" 
+          href="https://mathisreptile.github.io/foaf.rdf">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 25%, #fecfef 75%, #ff9a9e 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 7% { transform: rotateZ(0); }
+            15% { transform: rotateZ(-15deg); }
+            20% { transform: rotateZ(10deg); }
+            25% { transform: rotateZ(-10deg); }
+            30% { transform: rotateZ(6deg); }
+            35% { transform: rotateZ(-4deg); }
+            40%, 100% { transform: rotateZ(0); }
+        }
+        
+        header h1 {
+            font-size: 3em;
+            color: #2d5016;
+            text-shadow: 3px 3px 0px #7cb342;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            color: #4a148c;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .floating-emoji {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            font-size: 2em;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .emoji1 { top: 20px; left: 10%; animation-delay: 0s; }
+        .emoji2 { top: 30px; right: 15%; animation-delay: 1s; }
+        .emoji3 { bottom: 20px; left: 20%; animation-delay: 0.5s; }
+        .emoji4 { bottom: 30px; right: 10%; animation-delay: 1.5s; }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+        
+        .section h2 {
+            color: #1b5e20;
+            font-size: 2em;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: '🦎';
+            position: absolute;
+            right: -40px;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        
+        .about-me {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+        }
+        
+        .current-project {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            position: relative;
+        }
+        
+        .interests {
+            background: linear-gradient(135deg, #e1f5fe 0%, #81d4fa 100%);
+        }
+        
+        .interests ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .interests li {
+            background: rgba(255, 255, 255, 0.8);
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            border-left: 5px solid #4caf50;
+            transform: perspective(1px) translateZ(0);
+            transition: all 0.3s ease;
+        }
+        
+        .interests li:hover {
+            background: #fff;
+            transform: translateX(10px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .web-semantique {
+            background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%);
+            border: 3px dashed #9c27b0;
+        }
+        
+        .reptile-facts {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffb74d 100%);
+            border: 2px solid #ff9800;
+        }
+        
+        .fun-fact {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ff5722;
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .fun-fact::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: #fff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .links-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .fun-link {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fun-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .fun-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .fun-link:hover::before {
+            left: 100%;
+        }
+        
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            position: relative;
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+        
+        @keyframes rainbow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .spinning-gear {
+            display: inline-block;
+            animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Easter egg hover effect */
+        body:hover .floating-emoji {
+            animation-duration: 0.5s;
+        }
+        
+        /* Cursor trail effect */
+        .cursor-trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="floating-emoji emoji1">🦎</div>
+            <div class="floating-emoji emoji2">💻</div>
+            <div class="floating-emoji emoji3">🌐</div>
+            <div class="floating-emoji emoji4">🎓</div>
+            
+            <h1 class="wiggle">Bienvenue dans l'antre de <span class="rainbow-text">Mathis_reptile</span></h1>
+            <p class="subtitle">Le seul étudiant qui code avec des pattes de gecko ! 🦎💻</p>
+        </header>
+
+        <div class="section about-me">
+            <h2>Qui suis-je ? (Spoiler: pas un vrai reptile)</h2>
+            <p>Salut les humains ! 👋 Je suis <strong>Mathis</strong>, alias <em>mathis_reptile</em> dans le monde sauvage d'Internet. 
+            Je suis actuellement en train de muer... euh, de terminer mon Master 2 ICONE spécialisé Web 3.0 !</p>
+            
+            <div class="fun-fact">
+                Fun fact : Je n'ai pas encore développé de vision thermique, mais je peux détecter les bugs CSS à des kilomètres ! 🐍👨‍💻
+            </div>
+            
+            <p>Contrairement à mes cousins reptiliens, je ne hiberne pas l'hiver - je code ! Mon habitat naturel ? 
+            Un bureau encombré, un écran qui brille, et une tasse de café qui refroidit perpétuellement. ☕</p>
+        </div>
+
+        <div class="section current-project">
+            <h2>Mon projet actuel <span class="spinning-gear">⚙️</span></h2>
+            <p>Je travaille sur mon <strong>Master 2 ICONE - Web 3.0</strong> ! C'est comme élever des bébés lézards, 
+            mais en plus compliqué et avec plus de JavaScript. 🤯</p>
+            
+            <p>Entre les ontologies RDF et les spécifications FOAF, j'apprends à créer un Web plus intelligent... 
+            et j'espère qu'il sera assez intelligent pour me faire mes devoirs automatiquement ! 🤖</p>
+        </div>
+
+        <div class="section interests">
+            <h2>Mes passions (à part regarder des vidéos de lézards)</h2>
+            <ul>
+                <li><strong>🤝 FOAF (Friend of a Friend)</strong> - Parce que même les reptiles ont besoin d'amis sur le Web sémantique !</li>
+                <li><strong>🔗 RDF (Resource Description Framework)</strong> - Plus structuré qu'un terrarium bien organisé</li>
+                <li><strong>🌐 Technologies du Web sémantique</strong> - Pour que les machines comprennent enfin mes blagues sur les lézards</li>
+                <li><strong>📊 Données liées</strong> - Connecter toutes les informations comme une chaîne alimentaire numérique</li>
+            </ul>
+        </div>
+
+        <div class="section reptile-facts">
+            <h2>Coin des anecdotes reptiliennes 🦎</h2>
+            <div class="fun-fact">
+                Saviez-vous que les geckos peuvent marcher au plafond ? Moi aussi je peux... enfin, dans mes rêves de code ! 🏠
+            </div>
+            <div class="fun-fact">
+                Un caméléon change de couleur selon son humeur. Moi, je change de thème VS Code selon le nombre de bugs ! 🎨
+            </div>
+            <div class="fun-fact">
+                Les serpents n'ont pas de paupières. Pareil quand je debug à 3h du matin ! 👀
+            </div>
+        </div>
+
+        <div class="section web-semantique">
+            <h2>🔗 Ma petite contribution au Web sémantique</h2>
+            <p>Cette page n'est pas juste jolie (enfin, j'espère), elle est aussi enrichie avec des métadonnées FOAF ! 
+            C'est comme donner une carte d'identité numérique aux machines. 🤖</p>
+            
+            <p>Grâce à ça, les robots du Web peuvent comprendre que je suis un étudiant passionné et pas juste 
+            un reptile qui a appris à taper au clavier ! (Même si parfois je me pose la question...)</p>
+            
+            <div class="links-container">
+                <a href="foaf.rdf" class="fun-link">🦎 Mon profil FOAF</a>
+                <a href="https://www.w3.org/RDF/Validator/" class="fun-link">🔍 Validateur W3C</a>
+                <a href="http://xmlns.com/foaf/spec/" class="fun-link">📖 Spec FOAF</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ma formation (ou comment dresser un reptile développeur)</h2>
+            <p>À l'<strong>Université de La Rochelle</strong>, j'étudie le Web 3.0 sous la supervision bienveillante 
+            du professeur Alain BOUJU (qui n'a pas encore découvert que je suis secrètement un lézard). 🎓</p>
+            
+            <p>Le Web 3.0, c'est comme l'évolution des reptiles : ça prend du temps, c'est fascinant, 
+            et parfois on se demande comment on en est arrivé là ! 🦕➡️🦎➡️💻</p>
+            
+            <div class="fun-fact">
+                Cette page fait partie de mes TP FOAF. Si elle vous fait sourire, c'est que j'ai réussi ! 
+                Si elle vous fait fuir, c'est peut-être mes origines reptiliennes qui ressortent... 😅
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 <span class="rainbow-text">Mathis_reptile</span>. Tous droits réservés dans tous les terrariums ! 🏠</p>
+        <p>Page créée avec 💚 (et quelques écailles) dans le cadre du Master 2 ICONE - Web 3.0</p>
+        <p><small>Université de La Rochelle | Prof. Alain BOUJU | 2025/2026</small></p>
+        <p><small>Aucun reptile n'a été maltraité pendant la création de cette page ! 🦎✨</small></p>
+    </footer>
+
+    <script>
+        // Add some interactive fun
+        document.addEventListener('mousemove', function(e) {
+            // Create trailing dots
+            if (Math.random() > 0.9) {
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                document.body.appendChild(trail);
+                
+                setTimeout(() => {
+                    trail.remove();
+                }, 1000);
+            }
+        });
+
+        // Easter egg: click counter
+        let clickCount = 0;
+        document.body.addEventListener('click', function() {
+            clickCount++;
+            if (clickCount === 10) {
+                alert("🦎 Félicitations ! Vous avez trouvé l'œuf de Pâques reptilien ! Vous êtes maintenant membre honoraire de la communauté des lézards-développeurs ! 🎉");
+                clickCount = 0;
+            }
+        });
+
+        // Random emoji shower on hover
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                if (Math.random() > 0.7) {
+                    const emojis = ['🦎', '💻', '🌐', '✨', '🎓', '☕', '🤖', '💡'];
+                    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                    const emojiEl = document.createElement('div');
+                    emojiEl.textContent = randomEmoji;
+                    emojiEl.style.position = 'absolute';
+                    emojiEl.style.fontSize = '2em';
+                    emojiEl.style.pointerEvents = 'none';
+                    emojiEl.style.animation = 'float 2s ease-in-out';
+                    emojiEl.style.zIndex = '1000';
+                    emojiEl.style.left = Math.random() * section.offsetWidth + 'px';
+                    emojiEl.style.top = '10px';
+                    section.style.position = 'relative';
+                    section.appendChild(emojiEl);
+                    
+                    setTimeout(() => {
+                        emojiEl.remove();
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
