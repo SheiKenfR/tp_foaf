@@ -16,7 +16,7 @@
         <foaf:name>Master 2 ICONE - Web 3.0</foaf:name>
       </foaf:Project>
     </foaf:currentProject>
-    
+
     <foaf:interest rdf:resource="http://xmlns.com/foaf/spec/"/>
     <foaf:interest rdf:resource="https://www.w3.org/RDF/"/>
   </foaf:Person>
